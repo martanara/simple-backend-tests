@@ -9,6 +9,7 @@ describe('FormatFullname', () => {
 
   it('should return an error if arg is not a string', () => {
     expect(formatFullname(undefined)).to.equal('Error');
+    expect(formatFullname('')).to.equal('Error');
     expect(formatFullname(12)).to.equal('Error');
     expect(formatFullname({})).to.equal('Error');
     expect(formatFullname([])).to.equal('Error');
@@ -18,6 +19,8 @@ describe('FormatFullname', () => {
   it('should return an error if data format is incorrect', () => {
     expect(formatFullname('John Doe Test')).to.equal('Error');
     expect(formatFullname('John')).to.equal('Error');
+    expect(formatFullname(' John')).to.equal('Error');
+    expect(formatFullname('Doe ')).to.equal('Error');
   });
 
   it('should return correctly formatted text', () => {
